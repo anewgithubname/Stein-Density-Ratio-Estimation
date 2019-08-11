@@ -17,14 +17,6 @@ b = dimTheta
 def logpBar(x, theta):
     return -sum(x**2- theta*x[:dimTheta,:], 0) / 2
 
-# Assemble Stein Feature
-def steinFea(X, grad_f, grad_logp):
-    fea = []
-    for i in range(b):
-        t = grad(lambda X: f(X)[i,:])
-        fea.append(sum(grad_logp * t(X),0) + grad_f[i,:])
-    return vstack(fea)
-
 grad_logp = grad(logpBar)
 
 # theta: parameter of the unormalized log-density function, XData: dataset
@@ -34,7 +26,7 @@ def trial(theta, XData):
     XData = XData[:,idx[:n]]
 
     gFData = gradient_F(f, XData)
-    TthetaF = steinFea(XData, gFData, grad_logp(XData, theta))
+    TthetaF = steinFea(XData, gFData, grad_logp(XData, theta), f, b)
 
     # Primal objective function
     objective = lambda para: -mean(log(dot(para.T, TthetaF) + 1),1)

@@ -34,3 +34,11 @@ def gradient_F(K, X):
         grad2_K.append(grad2_Ki)
         print(i)
     return vstack(grad2_K)
+
+# Assemble Stein Feature
+def steinFea(X, grad_f, grad_logp, f, b):
+    fea = []
+    for i in range(b):
+        t = grad(lambda X: f(X)[i,:])
+        fea.append(sum(grad_logp * t(X),0) + grad_f[i,:])
+    return vstack(fea)
