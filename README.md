@@ -10,6 +10,8 @@
 
 - README: this file
 
+To run primal Stein density ratio estimation:
+
 ```bash
 cd DRE
 python demoPrimal.py
