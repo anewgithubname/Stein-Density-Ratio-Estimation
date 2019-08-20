@@ -8,9 +8,9 @@
 If you plan to modify our code (very likely, you will want to do so), it is best to install by:
 
 1. Clone this repository 
-2. `cd` to the folder that you get, and install our package by
+2. `cd` to the folder that you get, and install our package by (notice the dot at the end)
 
-    pip install -e .
+        pip install -e .
 
 There an alternative way to install without cloning. But we do not recommend at
 this point since the code requires direct modification at this point.
