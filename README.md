@@ -3,17 +3,32 @@
 ### Reference: 
 [*Song Liu, Takafumi Kanamori, Wittawat Jitkrittum, Yu Chen, Fisher Efficient Inference of Intractable Models, E-print: arXiv:1805.07454, 2019*](https://arxiv.org/abs/1805.07454)
 
+### Install the `sdre` package
+
+If you plan to modify our code (very likely, you will want to do so), it is best to install by:
+
+1. Clone this repository 
+2. `cd` to the folder that you get, and install our package by
+
+    pip install -e .
+
+There an alternative way to install without cloning. But we do not recommend at
+this point since the code requires direct modification at this point.
+
+
+Once installed, you should be able to do `import sdre` in a Python shell without any error.
+
 ### Folder Structure: 
-- **DRE**: Stein Density Ratio Estimation
-- **Inference**: Model Inference using SDRE
-- **util**: Helper Functions
+- **sdre**: the provided Python package. 
+- **script/DRE**: Stein Density Ratio Estimation
+- **script/Inference**: Model Inference using SDRE
 
 - README: this file
 
 To run primal Stein density ratio estimation:
 
 ```bash
-python DRE/demoPrimal.py
+python script/DRE/demoPrimal.py
 ```
 
 ```
