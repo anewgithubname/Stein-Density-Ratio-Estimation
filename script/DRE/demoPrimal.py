@@ -1,5 +1,5 @@
-import sys; sys.path.insert(1, 'util/')
-from helper import *
+import sdre
+from sdre.helper import *
 from scipy.optimize import minimize, Bounds, NonlinearConstraint
 # from socket import gethostname
 from time import time
