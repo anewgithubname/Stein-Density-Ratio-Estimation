@@ -18,14 +18,7 @@ this point since the code requires direct modification at this point.
 
 Once installed, you should be able to do `import sdre` in a Python shell without any error.
 
-### Folder Structure: 
-- **sdre**: the provided Python package. 
-- **script/DRE**: Stein Density Ratio Estimation
-- **script/Inference**: Model Inference using SDRE
-
-- README: this file
-
-To run primal Stein density ratio estimation:
+To run test Stein density ratio estimation:
 
 ```bash
 python script/DRE/demo.py
@@ -54,3 +47,9 @@ delta_pri = primal(logpBar, f, XData, eta = .001, max_iter=50000)
 ```python
 delta_dua = dual(logpBar, f, XData)
 ```
+
+### Folder Structure: 
+- **sdre**: the provided Python package. 
+- **script/DRE**: Stein Density Ratio Estimation
+- **script/Inference**: Model Inference using SDRE
+- README: this file
