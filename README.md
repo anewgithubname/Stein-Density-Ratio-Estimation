@@ -44,3 +44,13 @@ python script/DRE/demo.py
 
 ![demo.png](demo.png "")
 
+
+### Estimating density ratio parameters using `sdre.estimators.primal`
+```python
+delta_pri = primal(logpBar, f, XData, eta = .001, max_iter=50000)
+```
+
+### Estimating density ratio parameters using of `sdre.estimators.dual`
+```python
+delta_dua = dual(logpBar, f, XData)
+```
