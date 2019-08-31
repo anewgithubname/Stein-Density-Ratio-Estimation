@@ -18,7 +18,7 @@ this point since the code requires direct modification at this point.
 
 Once installed, you should be able to do `import sdre` in a Python shell without any error.
 
-To run test Stein density ratio estimation:
+### To run test Stein density ratio estimation:
 
 ```bash
 python script/DRE/demo.py
