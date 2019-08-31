@@ -1,7 +1,7 @@
 from autograd.numpy import *
 from autograd import elementwise_grad as grad
 from autograd import jacobian as jacobian
-# import scipy.io as sio
+
 set_printoptions(precision=8)
 
 def kernel_gauss(X, Y, sigma2):
