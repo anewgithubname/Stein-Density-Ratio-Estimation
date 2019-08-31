@@ -28,22 +28,19 @@ Once installed, you should be able to do `import sdre` in a Python shell without
 To run primal Stein density ratio estimation:
 
 ```bash
-python script/DRE/demoPrimal.py
+python script/DRE/demo.py
 ```
 
 ```
 0
 1
 2
-3
-4
-delta: [-0.01534369 -0.01241881 -0.01777918 -0.00768591 -0.0086371 ]
-delta: [-0.02901659 -0.02353518 -0.03350215 -0.01435563 -0.01642222]
-delta: [-0.04125819 -0.03353829 -0.04745818 -0.02016631 -0.02346772]
+0 delta: [-0.00056058  0.00018254 -0.00041193]
+100 delta: [-0.05309547  0.01852391 -0.03606012]
+200 delta: [-0.09931757  0.03469031 -0.06197491]
 ...
-gradient descent converged after 90 iterations
 
- diff between GD solver and builtin solver:
-[-1.74338949e-06  2.20755595e-06 -3.80123256e-06  5.16225588e-06
- -5.94081083e-06]
 ```
+
+![demo.png](demo.png "")
+
