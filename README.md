@@ -1,7 +1,7 @@
 # Stein Density Ratio Estimation (SDRE) and Its Applications
 
 ### Reference: 
-[*Song Liu, Takafumi Kanamori, Wittawat Jitkrittum, Yu Chen, Fisher Efficient Inference of Intractable Models, E-print: arXiv:1805.07454, 2019*](https://arxiv.org/abs/1805.07454)
+[*Song Liu, Takafumi Kanamori, Wittawat Jitkrittum, Yu Chen, Fisher Efficient Inference of Intractable Models, E-print: arXiv:1805.07454,  To appear NeurIPS2019, 2019*](https://arxiv.org/abs/1805.07454),
 
 ### Install the `sdre` package
 
