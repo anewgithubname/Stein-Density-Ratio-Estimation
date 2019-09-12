@@ -20,19 +20,19 @@ def kernel_poly(X):
     return vstack(t)
 
 # Gradient of Feature Function
-def gradient_F(K, X):
-    d = X.shape[0]; b = K(X).shape[0]
-    grad2_K = []
+def gradient_F(F, X):
+    d = X.shape[0]; b = F(X).shape[0]
+    grad2_F = []
     for i in range(b):
-        t = grad(lambda X: K(X)[i,:])
+        t = grad(lambda X: F(X)[i,:])
 
-        grad2_Ki = 0
+        grad2_Fi = 0
         for j in range(d):
             t2 = grad(lambda X: t(X)[j,:])
-            grad2_Ki = grad2_Ki + t2(X)[j,:]
-        grad2_K.append(grad2_Ki)
+            grad2_Fi = grad2_Fi + t2(X)[j,:]
+        grad2_F.append(grad2_Fi)
         print(i)
-    return vstack(grad2_K)
+    return vstack(grad2_F)
 
 # Assemble Stein Feature
 def steinFea(X, grad_f, grad_logp, f, b):
