@@ -28,7 +28,7 @@ def trial(theta, XData):
     idx = random.permutation(n0)
     XData = XData[:,idx[:n]]
 
-    gFData = gradient_F(f, XData)
+    gFData = traceHessF(f, XData)
     TthetaF = lambda theta: steinFea(XData, gFData, grad_logp(XData, theta), f, b)
 
     # constraint

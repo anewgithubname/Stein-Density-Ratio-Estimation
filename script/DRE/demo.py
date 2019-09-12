@@ -32,8 +32,8 @@ delta_pri = primal(logpBar, f, XData, eta = .001, max_iter=50000)
 delta_dua = dual(logpBar, f, XData)
 
 #%% plotting
-r_pri = lambda x: delta_pri.T.dot(steinFea(x, gradient_F(f, x), grad_logp(x), f, b)) + 1
-r_dua = lambda x: delta_dua.T.dot(steinFea(x, gradient_F(f, x), grad_logp(x), f, b)) + 1
+r_pri = lambda x: delta_pri.T.dot(steinFea(x, traceHessF(f, x), grad_logp(x), f, b)) + 1
+r_dua = lambda x: delta_dua.T.dot(steinFea(x, traceHessF(f, x), grad_logp(x), f, b)) + 1
 
 xMarks = array([linspace(-5,5)])
 plt.plot(xMarks[0,:],r_pri(xMarks)[0,:],c='r',

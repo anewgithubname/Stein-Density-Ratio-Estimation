@@ -19,8 +19,8 @@ def kernel_poly(X):
                 t.append(X[i,:]*X[j,:])
     return vstack(t)
 
-# Gradient of Feature Function
-def gradient_F(F, X):
+# trace of Hessian of F
+def traceHessF(F, X):
     d = X.shape[0]; b = F(X).shape[0]
     grad2_F = []
     for i in range(b):
@@ -35,9 +35,9 @@ def gradient_F(F, X):
     return vstack(grad2_F)
 
 # Assemble Stein Feature
-def steinFea(X, grad_f, grad_logp, f, b):
+def steinFea(X, traceHessF, grad_logp, f, b):
     fea = []
     for i in range(b):
         t = grad(lambda X: f(X)[i,:])
-        fea.append(sum(grad_logp * t(X),0) + grad_f[i,:])
+        fea.append(sum(grad_logp * t(X),0) + traceHessF[i,:])
     return vstack(fea)

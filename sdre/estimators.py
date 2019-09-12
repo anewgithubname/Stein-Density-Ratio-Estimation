@@ -14,7 +14,7 @@ def primal(logpBar, f, XData, solver="",
 
     grad_logp = grad(logpBar)
 
-    gFData = gradient_F(f, XData)
+    gFData = traceHessF(f, XData)
     TthetaF = steinFea(XData, gFData, grad_logp(XData), f, b)
 
     # Primal objective function
@@ -53,7 +53,7 @@ def dual(logpBar, f, XData):
 
     grad_logp = grad(logpBar)
 
-    gFData = gradient_F(f, XData)
+    gFData = traceHessF(f, XData)
     TthetaF = steinFea(XData, gFData, grad_logp(XData), f, b)
 
     # Dual objective function
