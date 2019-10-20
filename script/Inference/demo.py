@@ -26,11 +26,8 @@ b = 3*d
 
 #%% 
 # infer model parameters
-delta_dua,theta_dua = dual(logpBar, f, XData, theta=1)
+delta_dua,theta_dua,LL = dual(logpBar, f, XData, theta=1)
 
 #%% 
-grad_logp = grad(lambda x:logpBar(x,theta_dua))
-r_dua = delta_dua.T.dot(steinFea(XData, traceHessF(f, XData), grad_logp(XData), f, b)) + 1
-
 print('ground truth:', 0, 'estimated', theta_dua[0])
-print('log likelihood', sum(log(r_dua),0))
+print('log likelihood', LL)
