@@ -5,10 +5,6 @@ from sdre.estimators import primal
 from sdre.estimators import dual
 
 from autograd.numpy import *
-from autograd import elementwise_grad as grad
-from autograd import jacobian as jacobian
-from scipy.optimize import minimize, Bounds, NonlinearConstraint
-from matplotlib import pyplot as plt
 
 d = 1
 n = 100
