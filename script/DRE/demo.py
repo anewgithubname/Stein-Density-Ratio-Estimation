@@ -19,7 +19,7 @@ XData = random.standard_normal((d, n))
 
 #%%
 # Unnormalized density
-logpBar = lambda x:-sum(x**2 + 1*ones([d,1])*x, 0) / 2
+logpBar = lambda x:-sum(x**2 + ones([d,1])*x, 0) / 2
 # f in Stein feature
 f = lambda X: vstack([X,X**2/2,X**3/3])
 b = 3*d
@@ -29,7 +29,7 @@ grad_logp = grad(logpBar)
 #%% 
 # Estimate density ratio parameters
 delta_pri = primal(logpBar, f, XData, eta = .001, max_iter=50000)
-delta_dua = dual(logpBar, f, XData)
+delta_dua,theta_dua = dual(logpBar, f, XData)
 
 #%% plotting
 r_pri = lambda x: delta_pri.T.dot(steinFea(x, traceHessF(f, x), grad_logp(x), f, b)) + 1

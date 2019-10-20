@@ -47,30 +47,41 @@ def primal(logpBar, f, XData, solver="",
 
     return delta_hat
 
-def dual(logpBar, f, XData):
+def dual(logpBar, f, XData, theta=None):
     d,n = XData.shape
     b = f(XData).shape[0]
 
     grad_logp = grad(logpBar)
 
     gFData = traceHessF(f, XData)
-    TthetaF = steinFea(XData, gFData, grad_logp(XData), f, b)
+    if theta is not None:
+        TthetaF = lambda t: steinFea(XData, gFData, grad_logp(XData, t), f, b)
+        x0 = hstack([-ones(n), zeros(b), theta])
+        # constraint
+        nonlinC = lambda para: - dot(TthetaF(para[n+b:]), para[:n])
+    else:
+        TthetaF = steinFea(XData, gFData, grad_logp(XData), f, b)
+        x0 = hstack([-ones(n), zeros(b)])
+        # constraint
+        nonlinC = lambda para: - dot(TthetaF, para[:n])
 
     # Dual objective function
     obj = lambda para: mean(-log(-para[:n]) - 1) - mean(para[:n])
     grad_obj = grad(obj)
-    
-    # constraint
-    nonlinC = lambda para: - dot(TthetaF, para[:n])
     jac_nonlinC = jacobian(nonlinC)
 
     # use the builtin optimizer to optimize dual
     NC = NonlinearConstraint(nonlinC, zeros(b), zeros(b), jac=jac_nonlinC)
-    x0 = hstack([-ones(n), zeros(b)])
-
     res = minimize(obj, x0, jac=grad_obj, constraints=NC, method='trust-constr',
-                   options={'disp': True, 'maxiter': 10000})
+                   options={'disp': False, 'maxiter': 1000, 'gtol': 1e-12, 'xtol': 1e-12})
     
-    # Solve a least square to get delta     
+    if theta is not None:
+        theta_hat = res.x[n+b:]
+        TthetaHF = TthetaF(theta_hat)
+    else:
+        theta_hat = theta
+        TthetaHF = TthetaF
+
+    # Solve a least square to get delta
     r_n = -1. / res.x[:n]
-    return inv(TthetaF.dot(TthetaF.T)).dot(TthetaF).dot(r_n-1)
+    return (inv(TthetaHF.dot(TthetaHF.T)).dot(TthetaHF).dot(r_n-1), theta_hat, n * obj(res.x))

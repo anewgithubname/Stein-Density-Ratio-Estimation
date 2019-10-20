@@ -31,7 +31,7 @@ def traceHessF(F, X):
             t2 = grad(lambda X: t(X)[j,:])
             grad2_Fi = grad2_Fi + t2(X)[j,:]
         grad2_F.append(grad2_Fi)
-        print(i)
+        # print(i)
     return vstack(grad2_F)
 
 # Assemble Stein Feature
