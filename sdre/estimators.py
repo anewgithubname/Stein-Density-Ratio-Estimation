@@ -84,4 +84,4 @@ def dual(logpBar, f, XData, theta=None):
 
     # Solve a least square to get delta
     r_n = -1. / res.x[:n]
-    return (inv(TthetaHF.dot(TthetaHF.T)).dot(TthetaHF).dot(r_n-1), theta_hat, n * obj(res.x))
+    return (inv(TthetaHF.dot(TthetaHF.T)).dot(TthetaHF).dot(r_n-1), theta_hat, n * obj(res.x), TthetaHF) 

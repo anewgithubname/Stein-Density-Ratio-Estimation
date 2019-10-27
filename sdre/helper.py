@@ -1,6 +1,8 @@
 from autograd.numpy import *
 from autograd import elementwise_grad as grad
 from autograd import jacobian as jacobian
+from sdre.data import load_mnist
+import sys,os
 
 set_printoptions(precision=8)
 
@@ -41,3 +43,24 @@ def steinFea(X, traceHessF, grad_logp, f, b):
         t = grad(lambda X: f(X)[i,:])
         fea.append(sum(grad_logp * t(X),0) + traceHessF[i,:])
     return vstack(fea)
+
+#Load mnist
+def loadMNIST(normalize = False):
+    N, train_images, train_labels, test_images,  test_labels = load_mnist()
+    if normalize:
+        mu = mean(train_images,0)
+        std0 = std(train_images,0)
+        train_images = train_images - mu
+        test_images = test_images - mu
+        train_images = train_images/std0
+        test_images = test_images/std0
+        train_images[isnan(train_images)] = 0
+        test_images[isnan(test_images)] = 0
+    return train_images, train_labels, test_images, test_labels
+
+def getThreads():
+    """ Returns the number of available threads on a posix/win based system """
+    if sys.platform == 'win32':
+        return (int)(os.environ['NUMBER_OF_PROCESSORS'])
+    else:
+        return (int)(os.popen('grep -c cores /proc/cpuinfo').read())

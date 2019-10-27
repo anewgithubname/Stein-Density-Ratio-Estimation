@@ -22,7 +22,7 @@ b = 3*d
 
 #%% 
 # infer model parameters
-delta_dua,theta_dua,LL = dual(logpBar, f, XData, theta=1)
+delta_dua,theta_dua,LL,TfXData = dual(logpBar, f, XData, theta=1)
 
 #%% 
 print('ground truth:', 0, 'estimated', theta_dua[0])

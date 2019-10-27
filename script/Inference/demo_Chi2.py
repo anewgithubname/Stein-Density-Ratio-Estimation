@@ -9,10 +9,11 @@ from autograd.numpy import *
 from matplotlib import pyplot as plt
 
 from multiprocessing import Pool
+from time import time
 
-d = 5
+d = 20
 n = 250
-dTheta = d-4
+dTheta = d-5
 
 #%%
 # Unnormalized density parameterized by theta
@@ -28,7 +29,7 @@ def infer(seed):
     random.seed(seed)
     XData = random.standard_normal((d, n))
     # infer model parameters
-    delta_dua,theta_dua,LL = dual(logpBar, f, XData, theta=zeros(dTheta))
+    delta_dua,theta_dua,LL,TfData = dual(logpBar, f, XData, theta=zeros(dTheta))
 
     print(seed, 'log likelihood',LL)
     return LL
@@ -37,8 +38,11 @@ if __name__ == '__main__':
     # LL = infer(0)
     # LL = 2*array(list(map(infer, range(20))))
 
+    start = time()
     # if you want to be parallel...
-    LL = 2*array(list(Pool(16).map(infer, range(1000))))
+    ncores = getThreads(); print('number of threads,', ncores)
+    LL = 2*array(list(Pool(ncores).map(infer, range(10000))))
+    print('elapsed:', time() - start)
     
     # output results to matlab file
     io.savemat('LL.mat',{'LL':LL}) 

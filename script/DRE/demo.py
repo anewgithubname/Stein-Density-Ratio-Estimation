@@ -29,7 +29,7 @@ grad_logp = grad(logpBar)
 #%% 
 # Estimate density ratio parameters
 delta_pri = primal(logpBar, f, XData, eta = .001, max_iter=50000)
-delta_dua,theta_dua = dual(logpBar, f, XData)
+delta_dua,theta_dua,LL,TfXData = dual(logpBar, f, XData)
 
 #%% plotting
 r_pri = lambda x: delta_pri.T.dot(steinFea(x, traceHessF(f, x), grad_logp(x), f, b)) + 1
