@@ -4,8 +4,6 @@ from multiprocessing import Pool
 from socket import gethostname
 from time import time
 from sdre.trainnn import lastlayer
-from kgof.kernel import KGauss
-import kgof.util as util
 from scipy.stats import multivariate_normal
 from scipy import io as sio
 

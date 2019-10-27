@@ -1,5 +1,5 @@
 figure; 
-addpath(genpath('../../'))
+addpath(genpath('../../../'))
 for i = 0:9
 
 load(sprintf('mnistD_DLE %d.mat', i))
