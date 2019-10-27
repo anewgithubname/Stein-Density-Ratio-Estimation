@@ -3,6 +3,9 @@
 ### Reference: 
 [*Song Liu, Takafumi Kanamori, Wittawat Jitkrittum, Yu Chen, Fisher Efficient Inference of Intractable Models, E-print: arXiv:1805.07454,  To appear NeurIPS2019, 2019*](https://arxiv.org/abs/1805.07454),
 
+## Dependency on the `kernel-gof` package
+Before you run kernel Stein method for comparison, you need to install [`kernel-gof`](https://github.com/wittawatj/kernel-gof) package. See below to see how to install a package. 
+
 ### Install the `sdre` package
 
 If you plan to modify our code (very likely, you will want to do so), it is best to install by:
@@ -45,7 +48,7 @@ delta_pri = primal(logpBar, f, XData, eta = .001, max_iter=50000)
 
 ### Estimating density ratio parameters using of `sdre.estimators.dual`
 ```python
-delta_dua = dual(logpBar, f, XData)
+delta_dua, dual_theta, LL, TfXData = dual(logpBar, f, XData)
 ```
 
 ### Folder Structure: 
