@@ -3,6 +3,8 @@
 ### Reference: 
 [*Song Liu, Takafumi Kanamori, Wittawat Jitkrittum, Yu Chen, Fisher Efficient Inference of Intractable Models, E-print: arXiv:1805.07454,  To appear NeurIPS2019, 2019*](https://arxiv.org/abs/1805.07454),
 
+[Slides](./slides.pdf)
+
 ### Dependency on the `kernel-gof` package
 If you want to run the neural network demo, you need to install [`kernel-gof`](https://github.com/wittawatj/kernel-gof) package. 
 
