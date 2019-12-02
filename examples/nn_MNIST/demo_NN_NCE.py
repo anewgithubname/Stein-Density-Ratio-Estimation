@@ -34,8 +34,8 @@ def callbackF(Xi):
     print("iter {0:4d}, theta norm: {1:5.4f}".format(Nfeval, linalg.norm(Xi)))
     Nfeval += 1
 
-def infer(seed, XData):
-    random.seed(seed); print('seed:', seed)
+def infer(digit, XData):
+    random.seed(1); print('digit:', digit)
     n0 = XData.shape[1]
     idx = random.permutation(n0)
     XData = XData[:,idx[:n]]
@@ -67,7 +67,7 @@ def infer(seed, XData):
     theta = x0
     print('estimate', theta)
 
-    sio.savemat('out/nn %s %d.mat' % (gethostname(), seed),
+    sio.savemat('out/nn %s %d.mat' % (gethostname(), digit),
                 {'theta': theta[:-1], 'status': 0})
     return theta
 

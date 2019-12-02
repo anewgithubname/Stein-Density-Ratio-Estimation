@@ -18,8 +18,8 @@ def logpBar(x, theta):
     theta = vstack([theta])
     return dot(reshape(theta,[dimTheta,1]).T,f(x))
 
-def infer(seed, XData):
-    random.seed(seed); print('seed:', seed)
+def infer(digit, XData):
+    random.seed(1); print('digit:', digit)
     n0 = XData.shape[1]
     idx = random.permutation(n0)
     XData = XData[:,idx[:n]]
@@ -29,7 +29,7 @@ def infer(seed, XData):
     print('elapsed:', time() - t0)
     print('estimate', theta)
     
-    sio.savemat('out/nn %s %d.mat' % (gethostname(), seed),
+    sio.savemat('out/nn %s %d.mat' % (gethostname(), digit),
                 {'theta': theta, 'Ttheta': TthetaF})
     return 2 * n * LL
 
