@@ -55,6 +55,9 @@ delta_dua, dual_theta, LL, TfXData = dual(logpBar, f, XData)
 
 ### To reproduce our MNIST experiments, please run
 ```bash
+python sdre/trainnn.py
+```
+```bash
 python examples/nn_MNIST/demo_NN.py
 python examples/nn_MNIST/demo_NN_KSD.py
 python examples/nn_MNIST/demo_NN_NCE.py
