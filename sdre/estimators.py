@@ -73,7 +73,7 @@ def dual(logpBar, f, XData, theta=None):
     # use the builtin optimizer to optimize dual
     NC = NonlinearConstraint(nonlinC, zeros(b), zeros(b), jac=jac_nonlinC)
     res = minimize(obj, x0, jac=grad_obj, constraints=NC, method='trust-constr',
-                   options={'disp': False, 'maxiter': 1000, 'gtol': 1e-12, 'xtol': 1e-12})
+                   options={'disp': True, 'maxiter': 1000, 'gtol': 1e-12, 'xtol': 1e-12})
     
     if theta is not None:
         theta_hat = res.x[n+b:]

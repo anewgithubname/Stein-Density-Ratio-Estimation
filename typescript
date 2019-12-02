@@ -1,0 +1,29 @@
+Script started on Mon Dec  2 02:18:06 2019
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP SDRE % [K[?2004hlls[?2004l
+LICENSE		MANIFEST.in	data		deprecated	out		script		sdre.egg-info	setup.py	typescript
+LL.mat		README.md	demo.png	optpara.npy	s.mat		sdre		setup.cfg	slides.pdf
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP SDRE % [K[?2004hccd script[1m/[0m[0m [?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP script % [K[?2004hlls[?2004l
+DRE		Inference
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP script % [K[?2004hccd Inference[1m/[0m[0m [?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP Inference % [K[?2004hddir[?2004l
+zsh: command not found: dir
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP Inference % [K[?2004hlls[?2004l
+LL.mat		demo.py		demoAIC.py	demo_Chi2.py	nn_MNIST	others
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP Inference % [K[?2004hppython demo_CHI  hi2.py[1m [0m[0m [?2004l
+Traceback (most recent call last):
+  File "demo_Chi2.py", line 2, in <module>
+    import sdre
+ImportError: No module named sdre
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP Inference % [K[?2004hpython demo_Chi2.py[19D                   [19Dppyht  thon[?2004l
+
+WARNING: Python 2.7 is not recommended. 
+This version is included in macOS for compatibility with legacy software. 
+Future versions of macOS will not include Python 2.7. 
+Instead, it is recommended that you transition to using 'python3' from within Terminal.
+
+Python 2.7.16 (default, Oct 23 2019, 19:14:20) 
+[GCC 4.2.1 Compatible Apple LLVM 11.0.0 (clang-1100.0.32.4) (-macos10.15-objc-s on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+[1m[7m%[27m[1m[0m                                                                                                                                                             [0m[27m[24m[J(base) song@SongdeMBP Inference % [K[?2004h

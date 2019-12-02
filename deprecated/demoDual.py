@@ -55,10 +55,10 @@ def trial(theta, XData):
     return theta
 
 if __name__ == '__main__':
-    random.seed(1)
+    digit.seed(1)
     # Dataset
     theta_star = tile(pi,[5,1])
-    XData = random.standard_normal((d, n)) + theta_star
+    XData = digit.standard_normal((d, n)) + theta_star
     # Run the main programme
     theta_hat = trial(-ones([d,1])*.2, XData)
     print('theta_hat', theta_hat)
