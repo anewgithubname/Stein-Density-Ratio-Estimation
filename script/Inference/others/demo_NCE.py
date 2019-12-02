@@ -68,5 +68,5 @@ def infer(seed, XData):
 if __name__ == '__main__':
     global Nfeval
     Nfeval = 1
-    XData = digit.standard_normal((d, n))+2
+    XData = random.standard_normal((d, n))+2
     infer(1, XData)

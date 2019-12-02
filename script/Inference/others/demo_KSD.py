@@ -56,7 +56,7 @@ def infer(seed, XData):
     grad_obj = grad(obj)
     hess_obj = jacobian(grad_obj)
 
-    x0 = digit.randn(dimTheta)
+    x0 = random.randn(dimTheta)
     t0 = time()
     res = minimize(obj, x0, jac=grad_obj, method='BFGS',callback=callbackF, 
                    options={'disp': True, 'maxiter': 10000})
@@ -75,5 +75,5 @@ def infer(seed, XData):
 if __name__ == '__main__':
     global Nfeval
     Nfeval = 1
-    XData = digit.standard_normal((d, n))+2
+    XData = random.standard_normal((d, n))+2
     infer(1, XData)    
