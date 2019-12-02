@@ -23,7 +23,7 @@ def infer(digit, XData):
     n0 = XData.shape[1]
     idx = random.permutation(n0)
     XData = XData[:,idx[:n]]
-
+    
     t0 = time()
     delta,theta,LL,TthetaF = dual(logpBar, f, XData, theta=zeros(dimTheta))
     print('elapsed:', time() - t0)

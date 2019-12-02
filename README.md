@@ -53,6 +53,19 @@ delta_pri = primal(logpBar, f, XData, eta = .001, max_iter=50000)
 delta_dua, dual_theta, LL, TfXData = dual(logpBar, f, XData)
 ```
 
+### To reproduce our MNIST experiments, please run
+```bash
+python examples/nn_MNIST/demo_NN.py
+python examples/nn_MNIST/demo_NN_KSD.py
+python examples/nn_MNIST/demo_NN_NCE.py
+```
+Then, in MATLAB, run
+```MATLAB
+examples/nn_MNIST/plotMNIST
+```
+You should see
+![mnist.png](mnist.png "")
+
 ### Folder Structure: 
 - **sdre**: the provided Python package. 
 - **script/DRE**: Stein Density Ratio Estimation
